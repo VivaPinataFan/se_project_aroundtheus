@@ -1,0 +1,28 @@
+.cards {
+    width: 100%;
+    font-family: "Inter", Arial, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.2;
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.cards__list {
+  list-style-type: none;
+  display: grid;
+  justify-content: center;
+  grid-gap: 20px 17px;
+  grid-template-columns: repeat(auto-fit, 282px);
+  padding: 0;
+  margin: 72px 0 0 0;
+}
+
+@media screen and (max-width: 320px) {
+  .cards {
+    margin-top: 300px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
