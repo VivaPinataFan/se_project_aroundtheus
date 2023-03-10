@@ -1,19 +1,18 @@
 .logo {
-    margin-top: 45px;
-    margin-bottom: 41px;
-    width: 173px;
-    height: 33px;
-    display: flex;
+  margin-top: 45px;
+  margin-bottom: 41px;
+  width: 173px;
+  height: 33px;
+  display: flex;
   flex-direction: column;
-  }
+}
 
-
-  @media screen and (max-width: 320px) {
-    .logo {
-        width: 126px;
-        height: 24px;
-        margin-top: 28px;
-        margin-bottom: 32px;
-        margin-left: 27px;
-      }
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 126px;
+    height: 24px;
+    margin-top: 28px;
+    margin-bottom: 32px;
+    margin-left: 27px;
   }
+}

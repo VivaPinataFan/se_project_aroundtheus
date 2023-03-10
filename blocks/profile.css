@@ -1,5 +1,5 @@
 .profile {
-  width: 880px;
+  max-width: 880px;
   color: #fff;
   display: flex;
   margin:  0 auto;
@@ -15,11 +15,11 @@
 
 .profile__content {
   display: grid;
-  grid-template-rows: repeat (auto-fit, 0.5fr);
+  grid-template-rows: repeat (auto-fit, 282px);
   grid-template-columns: max-content;
   grid-template-areas:
-    "title edit"
-    "subtitle subtitle";
+    "title title edit . . . "
+    "subtitle subtitle subtitle . . .";
   grid-gap: 0;
 }
 
@@ -58,11 +58,13 @@
 }
 
 .profile__button-add {
+  display: grid;
   background-color: transparent;
   max-height: 50px;
   border: 2px solid #fff;
   min-width: 150px;
-  margin: 75px 200px 0 165px;
+  margin-left: auto;
+  margin-top: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +78,7 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
   .profile {
     flex-direction: column;
     width: 282px;
