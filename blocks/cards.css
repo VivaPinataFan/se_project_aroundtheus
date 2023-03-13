@@ -6,7 +6,7 @@
   font-size: 24px;
   line-height: 1.2;
   max-width: 880px;
-  margin: 0 auto;
+  margin: 36px auto;
 }
 
 .cards__list {
@@ -16,7 +16,6 @@
   grid-gap: 20px 17px;
   grid-template-columns: repeat(auto-fit, 282px);
   padding: 0;
-  margin: 72px 0 0 0;
 }
 
 @media screen and (max-width: 768px) {
