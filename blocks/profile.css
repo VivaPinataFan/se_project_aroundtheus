@@ -18,9 +18,10 @@
   grid-template-rows: repeat (auto-fit, 282px);
   grid-template-columns: max-content;
   grid-template-areas:
-    "title title edit . . . "
-    "subtitle subtitle subtitle . . .";
+    "title edit"
+    "subtitle subtitle";
   grid-gap: 0;
+  overflow: visible;
 }
 
 .profile__title {
@@ -93,6 +94,7 @@
 
   .profile__content {
     margin: 0 19px 0 19px;
+    overflow: visible;
   }
 
   .profile__image {
@@ -108,6 +110,9 @@
     width: 100%;
     text-align: center;
     margin-bottom: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .profile__subtitle {
@@ -117,6 +122,9 @@
     text-align: center;
     margin: 0;
     margin-bottom: 36px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .profile__button-edit {
