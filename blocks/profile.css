@@ -21,11 +21,11 @@
     "title edit"
     "subtitle subtitle";
   grid-gap: 0;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .profile__title {
-  max-width: 100%;
+  max-width: 373px;
   margin: 62px 18px 0 3.75px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 500;
@@ -38,7 +38,7 @@
 }
 
 .profile__subtitle {
-  max-width: 100%;
+  max-width: 415px;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -118,7 +118,7 @@
   .profile__subtitle {
     font-size: 14px;
     line-height: 1.2;
-    width: 100%;
+    max-width: 100%;
     text-align: center;
     margin: 0;
     margin-bottom: 36px;
@@ -133,7 +133,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 18px;
+    max-width: 18px;
     height: 18px;
   }
 
