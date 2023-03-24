@@ -21,7 +21,6 @@
     "title edit"
     "subtitle subtitle";
   grid-gap: 0;
-  overflow: hidden;
 }
 
 .profile__title {
@@ -34,7 +33,7 @@
   grid-area: title;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .profile__subtitle {
@@ -48,7 +47,7 @@
   grid-area: subtitle;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .profile__button-edit {
@@ -107,13 +106,13 @@
     line-height: 1.2;
     margin-top: 26.25px;
     margin-left: 10px;
-    /* width: 100%; */
     max-width: 320px;
     text-align: center;
     margin-bottom: 14px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin-right: 10px;
   }
 
   .profile__subtitle {
@@ -130,7 +129,6 @@
 
   .profile__button-edit {
     margin-top: 26.25px;
-    margin-left: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
