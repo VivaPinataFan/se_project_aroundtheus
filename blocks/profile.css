@@ -85,7 +85,7 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 320px) and (max-width: 768px) {
   .profile {
     flex-direction: column;
     width: 282px;
@@ -93,7 +93,9 @@
 
   .profile__content {
     margin: 0 19px 0 19px;
-    overflow: visible;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .profile__image {
@@ -105,7 +107,7 @@
     font-size: 22px;
     line-height: 1.2;
     margin-top: 26.25px;
-    margin-left: 10px;
+    margin-left: 20px;
     max-width: 320px;
     text-align: center;
     margin-bottom: 14px;
@@ -144,4 +146,8 @@
     align-self: center;
     padding: 17px 132px 17px 132px;
   }
+}
+
+@media screen and (max-width: 320px) {
+
 }
