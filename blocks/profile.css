@@ -92,9 +92,7 @@
   }
 
   .profile__content {
-    text-align: center;
     padding-top: 26.25px;
-
   }
 
   .profile__image {
@@ -145,5 +143,3 @@
     padding: 17px 132px 17px 132px;
   }
 }
-
-
