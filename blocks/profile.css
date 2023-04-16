@@ -105,8 +105,6 @@
     line-height: 1.2;
     max-width: 250px;
     margin: 0 auto;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
     text-align: center;
     padding-right: 10px;
@@ -119,8 +117,6 @@
     text-align: center;
     margin: 0 auto;
     margin-bottom: 36px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
     margin-top: 14px;
   }

@@ -10,6 +10,7 @@
 
 .footer__copyright {
   color: #545454;
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {
