@@ -103,7 +103,7 @@
 
   .modal__container {
     width: 282px;
-    padding: 22px 22px 25px 22px;
+    padding: 25px 25px 25px 25px;
   }
 
   .modal__heading {
@@ -111,11 +111,12 @@
   }
 
   .modal__form {
-    row-gap: 43px;
+    row-gap: 45px;
   }
 
   .modal__button {
     width: 238px;
     font-size: 14px;
+    margin-bottom: 7px;
   }
 }
