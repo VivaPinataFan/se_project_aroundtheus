@@ -34,7 +34,11 @@
             ></button>
             <p class="profile__subtitle">Explorer</p>
           </div>
-          <button class="profile__button-add" type="button" id="profile-button-add"></button>
+          <button
+            class="profile__button-add"
+            type="button"
+            id="profile-button-add"
+          ></button>
         </section>
         <section class="cards">
           <ul class="cards__list"></ul>
@@ -73,28 +77,26 @@
         </form>
       </div>
     </div>
-    
+
     <!-- card modal -->
     <div class="modal" id="profile-add-modal">
       <div class="modal__container">
-        <button class="modal__close" 
-        type="button"
-        ></button>
+        <button class="modal__close" type="button"></button>
         <h2 class="modal__heading">New place</h2>
         <form class="modal__form" name="modal-form" id="modal-form-add">
           <input
-          type="text"
-          placeholder="Title"
-          name="title"
-          id="card-title-input"
-          class="modal__form-input"
+            type="text"
+            placeholder="Title"
+            name="title"
+            id="card-title-input"
+            class="modal__form-input"
           />
           <input
-          type="url"
-          placeholder="Image link"
-          name="url"
-          id="card-image-input"
-          class="modal__form-input"
+            type="url"
+            placeholder="Image link"
+            name="url"
+            id="card-image-input"
+            class="modal__form-input"
           />
           <button class="modal__button" type="submit">Create</button>
         </form>
@@ -104,13 +106,9 @@
     <!-- image modal -->
     <div class="modal" id="image-modal">
       <div class="modal__container-image">
-       <button class="modal__close" type="button"></button>
-        <img
-         class="modal__image"
-         src=""
-         alt=""
-         />
-       <p class="modal__image-caption"></p>
+        <button class="modal__close" type="button"></button>
+        <img class="modal__image" src="#" alt="#" />
+        <p class="modal__image-caption"></p>
       </div>
     </div>
 
@@ -118,11 +116,7 @@
     <template id="card-template">
       <li class="card">
         <button class="card__button-delete" type="button"></button>
-        <img 
-        class="card__image" 
-        src="" 
-        alt="" 
-        />
+        <img class="card__image" src="#" alt="#" />
         <div class="card__content">
           <h2 class="card__title" id="card-title"></h2>
           <button class="card__button-like" type="button"></button>
