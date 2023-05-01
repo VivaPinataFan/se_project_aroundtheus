@@ -17,6 +17,7 @@
         <img src="./Vectors/logo.svg" alt="Around The U.S. logo" class="logo" />
       </header>
 
+      <!-- profile -->
       <main class="content">
         <section class="profile">
           <img
@@ -33,9 +34,8 @@
             ></button>
             <p class="profile__subtitle">Explorer</p>
           </div>
-          <button class="profile__button-add" type="button"></button>
+          <button class="profile__button-add" type="button" id="profile-button-add"></button>
         </section>
-
         <section class="cards">
           <ul class="cards__list"></ul>
         </section>
@@ -45,6 +45,7 @@
       </footer>
     </div>
 
+    <!-- edit modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
@@ -53,7 +54,7 @@
           type="button"
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form" name="modal-form">
+        <form class="modal__form" name="modal-form" id="modal-form-edit">
           <input
             type="text"
             placeholder="Jacques Cousteu"
@@ -72,13 +73,59 @@
         </form>
       </div>
     </div>
+    
+    <!-- card modal -->
+    <div class="modal" id="profile-add-modal">
+      <div class="modal__container">
+        <button class="modal__close" 
+        type="button"
+        ></button>
+        <h2 class="modal__heading">New place</h2>
+        <form class="modal__form" name="modal-form" id="modal-form-add">
+          <input
+          type="text"
+          placeholder="Title"
+          name="title"
+          id="card-title-input"
+          class="modal__form-input"
+          />
+          <input
+          type="url"
+          placeholder="Image link"
+          name="url"
+          id="card-image-input"
+          class="modal__form-input"
+          />
+          <button class="modal__button" type="submit">Create</button>
+        </form>
+      </div>
+    </div>
 
+    <!-- image modal -->
+    <div class="modal" id="image-modal">
+      <div class="modal__container-image">
+       <button class="modal__close" type="button"></button>
+        <img
+         class="modal__image"
+         src=""
+         alt=""
+         />
+       <p class="modal__image-caption"></p>
+      </div>
+    </div>
+
+    <!-- card template -->
     <template id="card-template">
       <li class="card">
-        <img class="card__image" src="" alt="" />
+        <button class="card__button-delete" type="button"></button>
+        <img 
+        class="card__image" 
+        src="" 
+        alt="" 
+        />
         <div class="card__content">
-          <h2 class="card__title"></h2>
-          <button class="card__button" type="button"></button>
+          <h2 class="card__title" id="card-title"></h2>
+          <button class="card__button-like" type="button"></button>
         </div>
       </li>
     </template>

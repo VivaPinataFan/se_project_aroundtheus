@@ -4,6 +4,7 @@
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
+  position: relative;
 }
 
 .card__image {
@@ -32,19 +33,39 @@
   margin: 25px 20px;
 }
 
-.card__button {
+.card__button-like {
   margin: 0;
   cursor: pointer;
   border: none;
-  background-color: transparent;
-  background-image: url(../Vectors/Like.svg);
+  background: transparent url(../vectors/Like.svg);
   transition: opacity 0.2s linear;
   height: 18px;
   width: 21px;
 }
 
-.card__button:hover {
+.card__button-like_active {
+  background-image: url(../Vectors/like_active.svg);
+}
+
+.card__button-like:hover {
   opacity: 0.5;
+}
+
+.card__button-delete {
+  margin: 0;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  background: transparent url(../Vectors/Delete.svg) center no-repeat;
+  width: 18px;
+  height: 19.3px;
+  top: 18px;
+  right: 15px;
+  transition: opacity 0.2s linear;
+}
+
+.card__button-delete:hover {
+  opacity: .6
 }
 
 @media screen and (max-width: 768px) {
