@@ -107,7 +107,6 @@
   opacity: 0.6;
 }
 
-
 .modal__container-image {
   margin: auto;
   position: relative;
@@ -171,6 +170,4 @@
     line-height: 1.2;
     padding: 0;
   }
-
-
 }
