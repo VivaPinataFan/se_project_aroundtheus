@@ -51,6 +51,11 @@
   margin-top: 0;
 }
 
+.modal__label {
+  display: flex;
+  flex-direction: column;
+}
+
 .modal__form-input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -59,6 +64,24 @@
   font-size: 14px;
   line-height: 1.2;
   padding-bottom: 13px;
+}
+
+.modal__form-input_type_error {
+  border-bottom: 1px solid #FF0000;
+}
+
+.modal__error {
+  visibility: hidden;
+}
+
+.modal__error_visible {
+  visibility: visible;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #FF0000;
+  margin-top: 5px;
 }
 
 .modal__image {
@@ -82,6 +105,13 @@
   line-height: 1.2;
   cursor: pointer;
   transition: opacity 0.3s linear;
+}
+
+.modal__button:disabled {
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000000;
+  opacity: 0.2;
 }
 
 .modal__button:hover {
