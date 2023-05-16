@@ -63,10 +63,9 @@ function closePopup(popup) {
   document.removeEventListener("keydown", closeModalWithEsc);
 }
 
-
 //open function
 function openPopup(popup) {
-  popup.classList.add('modal_opened')
+  popup.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalWithEsc);
 }
 
@@ -82,9 +81,9 @@ const closeModalWithEsc = (e) => {
 function clickOutPopup(modal) {
   modal.addEventListener("mousedown", function (e) {
     if (e.target === e.currentTarget) {
-      closePopup(modal)
+      closePopup(modal);
     }
-  })
+  });
 }
 
 clickOutPopup(profileEditModal);
