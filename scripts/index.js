@@ -60,12 +60,38 @@ const modalImageClose = imageModal.querySelector(".modal__close");
 //close function
 function closePopup(popup) {
   popup.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalWithEsc);
 }
+
 
 //open function
 function openPopup(popup) {
   popup.classList.add('modal_opened')
+  document.addEventListener("keydown", closeModalWithEsc);
 }
+
+//esc function
+const closeModalWithEsc = (e) => {
+  if (e.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    closePopup(openModal);
+  }
+};
+
+//close by clicking overlay function
+function clickOutPopup(modal) {
+  modal.addEventListener("mousedown", function (e) {
+    if (e.target === e.currentTarget) {
+      closePopup(modal)
+    }
+  })
+}
+
+clickOutPopup(profileEditModal);
+
+clickOutPopup(profileAddModal);
+
+clickOutPopup(imageModal);
 
 //render card function
 function renderCard(cardData) {
