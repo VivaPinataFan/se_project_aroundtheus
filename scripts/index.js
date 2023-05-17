@@ -50,6 +50,7 @@ const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#card-image-input");
 const cardAddForm = document.querySelector("#modal-form-add");
 const cardCloseButton = profileAddModal.querySelector(".modal__close");
+const cardSubmitButton = document.querySelector("#card-submit");
 
 //image modal variables
 const imageModal = document.querySelector("#image-modal");
@@ -140,9 +141,14 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
+  const cardInputList = Array.from(
+    cardAddForm.querySelectorAll(config.inputSelector)
+  );
+
   renderCard({ name, link }, cardListEl);
+  cardAddForm.reset();
+  toggleButtonState(cardInputList, cardSubmitButton, config);
   closePopup(profileAddModal);
-  e.target.reset();
 }
 
 // event listeners
