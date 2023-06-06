@@ -1,16 +1,16 @@
-function openPopup(popup) {
+export function openPopup(popup) {
     popup.classList.add("modal_opened");
     document.addEventListener("keydown", closeModalWithEsc);
   }
 
-  const closeModalWithEsc = (e) => {
+ export const closeModalWithEsc = (e) => {
     if (e.key === "Escape") {
       const openModal = document.querySelector(".modal_opened");
       closePopup(openModal);
     }
   };
 
-  function clickOutPopup(modal) {
+ export function clickOutPopup(modal) {
     modal.addEventListener("mousedown", function (e) {
       if (e.target === e.currentTarget) {
         closePopup(modal);
@@ -18,7 +18,7 @@ function openPopup(popup) {
     });
   }
 
-  function closePopup(popup) {
+ export function closePopup(popup) {
     popup.classList.remove("modal_opened");
     document.removeEventListener("keydown", closeModalWithEsc);
   }

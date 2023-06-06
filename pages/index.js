@@ -1,6 +1,6 @@
 import Card from '../components/Card.js';
 // import FormValidator from '../components/FormValidator.js';
-// import { openModal, closeModal } from "../utils/utils.js";
+// import { openPopup, closePopup, clickOutPopup, closeModalWithEsc } from "../utils/utils.js";
 
 const initialCards = [
   {
@@ -33,9 +33,14 @@ const initialCards = [
    name: "Bryce Canyon",
    link: "https://images.unsplash.com/photo-1681056943589-4db67093fd6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1533&q=80",
  }
+ //render the rest of the 5 cards, get rid cardData
 
+  const cardListEl = document.querySelector(".cards__list");
   const card = new Card(cardData, "#card-template"); 
-  card.getView();
+  const cardElement = card.getView();
+  cardListEl.prepend(cardElement);
+  //render new cards that are added
+  
 
 //profile variables
 const profileTitle = document.querySelector(".profile__title");
@@ -50,7 +55,6 @@ const profileSubtitleInput = document.querySelector("#profile-subtitle-input");
 const profileEditForm = profileEditModal.querySelector("#modal-form-edit");
 
 //card variables
-const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardTitle = document.querySelector("#card-title");
@@ -108,38 +112,38 @@ clickOutPopup(imageModal);
 //render card function
 function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  //adjust this to render the initial cards
 }
 
 //card rendering
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-   //const likeButton = cardElement.querySelector(".card__button-like");
-   const deleteButton = cardElement.querySelector(".card__button-delete");
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImageEl = cardElement.querySelector(".card__image");
+//   const cardTitleEl = cardElement.querySelector(".card__title");
+//    const likeButton = cardElement.querySelector(".card__button-like");
+//    const deleteButton = cardElement.querySelector(".card__button-delete");
 
-    //likeButton.addEventListener("click", () => {
-      //likeButton.classList.toggle("card__button-like_active");
-    //});
+//     likeButton.addEventListener("click", () => {
+//       likeButton.classList.toggle("card__button-like_active");
+//     });
 
-    deleteButton.addEventListener("click", () => {
-      cardElement.remove();
-    });
+//     deleteButton.addEventListener("click", () => {
+//       cardElement.remove();
+//     });
 
-  cardImageEl.addEventListener("click", () => {
-    openPopup(imageModal);
-    modalImage.src = cardImageEl.src;
-    modalImage.alt = cardImageEl.alt;
-    modalImageCaption.textContent = cardTitleEl.textContent;
-  });
+//   cardImageEl.addEventListener("click", () => {
+//     openPopup(imageModal);
+//     modalImage.src = cardImageEl.src;
+//     modalImage.alt = cardImageEl.alt;
+//     modalImageCaption.textContent = cardTitleEl.textContent;
+//   });
 
-  cardTitleEl.textContent = cardData.name;
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
+//   cardTitleEl.textContent = cardData.name;
+//   cardImageEl.src = cardData.link;
+//   cardImageEl.alt = cardData.name;
 
-  return cardElement;
-}
+//   return cardElement;
+// }
 
 // Event handlers
 function handleProfileEditSubmit(e) {
