@@ -1,3 +1,7 @@
+import Card from '../components/Card.js';
+// import FormValidator from '../components/FormValidator.js';
+// import { openModal, closeModal } from "../utils/utils.js";
+
 const initialCards = [
   {
     name: "Bryce Canyon",
@@ -24,6 +28,14 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1492724724894-7464c27d0ceb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
   },
 ];
+
+ const cardData = {
+   name: "Bryce Canyon",
+   link: "https://images.unsplash.com/photo-1681056943589-4db67093fd6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1533&q=80",
+ }
+
+  const card = new Card(cardData, "#card-template"); 
+  card.getView();
 
 //profile variables
 const profileTitle = document.querySelector(".profile__title");
@@ -104,16 +116,16 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__button-like");
-  const deleteButton = cardElement.querySelector(".card__button-delete");
+   //const likeButton = cardElement.querySelector(".card__button-like");
+   const deleteButton = cardElement.querySelector(".card__button-delete");
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__button-like_active");
-  });
+    //likeButton.addEventListener("click", () => {
+      //likeButton.classList.toggle("card__button-like_active");
+    //});
 
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+    deleteButton.addEventListener("click", () => {
+      cardElement.remove();
+    });
 
   cardImageEl.addEventListener("click", () => {
     openPopup(imageModal);
