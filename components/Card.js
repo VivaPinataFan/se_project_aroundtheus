@@ -41,7 +41,7 @@ export default class Card {
         
         this._cardImage.src = this._link;
         this._cardImage.alt = this._name;
-        this._cardImage.textContent = this._name;
+        this._cardTitle.textContent = this._name;
 
         openPopup(imageModal);
     }

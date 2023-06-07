@@ -125,7 +125,7 @@ function handleAddCardFormSubmit(e) {
 
   renderCard({ name, link }, cardListEl);
   cardAddForm.reset();
-  toggleButtonState(cardInputList, cardSubmitButton, config);
+  this._toggleButtonState(cardInputList, cardSubmitButton, config);
   closePopup(profileAddModal);
 }
 
