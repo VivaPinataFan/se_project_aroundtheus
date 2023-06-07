@@ -1,6 +1,6 @@
 import Card from '../components/Card.js';
 // import FormValidator from '../components/FormValidator.js';
-// import { openPopup, closePopup, clickOutPopup, closeModalWithEsc } from "../utils/utils.js";
+ //import { openPopup, closePopup, clickOutPopup, closeModalWithEsc } from "../utils/Utils.js";
 
 const initialCards = [
   {
@@ -29,19 +29,9 @@ const initialCards = [
   },
 ];
 
- const cardData = {
-   name: "Bryce Canyon",
-   link: "https://images.unsplash.com/photo-1681056943589-4db67093fd6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1533&q=80",
- }
- //render the rest of the 5 cards, get rid cardData
 
-  const cardListEl = document.querySelector(".cards__list");
-  const card = new Card(cardData, "#card-template"); 
-  const cardElement = card.getView();
-  cardListEl.prepend(cardElement);
-  //render new cards that are added
+
   
-
 //profile variables
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
@@ -58,6 +48,7 @@ const profileEditForm = profileEditModal.querySelector("#modal-form-edit");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardTitle = document.querySelector("#card-title");
+const cardListEl = document.querySelector(".cards__list");
 
 //card modal variables
 const profileAddButton = document.querySelector("#profile-button-add");
@@ -109,10 +100,12 @@ clickOutPopup(profileAddModal);
 
 clickOutPopup(imageModal);
 
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
 //render card function
-function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
-  //adjust this to render the initial cards
+function renderCard(cardData, listEl) {
+  const card = new Card(cardData, "#card-template");
+  listEl.prepend(card.getView());
 }
 
 //card rendering
@@ -194,4 +187,4 @@ modalImageClose.addEventListener("click", () => {
 });
 
 //card for each loop
-initialCards.forEach(renderCard);
+
