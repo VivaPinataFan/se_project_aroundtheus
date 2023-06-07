@@ -107,7 +107,7 @@
   transition: opacity 0.3s linear;
 }
 
-.modal__button:disabled {
+.modal__button_disabled {
   border: 1px solid #000;
   background-color: #fff;
   color: #000000;
