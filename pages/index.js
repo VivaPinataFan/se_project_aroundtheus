@@ -1,6 +1,6 @@
 import Card from '../components/Card.js';
 // import FormValidator from '../components/FormValidator.js';
- //import { openPopup, closePopup, clickOutPopup, closeModalWithEsc } from "../utils/Utils.js";
+import { openPopup, closePopup, clickOutPopup } from "../utils/Utils.js";
 
 const initialCards = [
   {
@@ -30,7 +30,7 @@ const initialCards = [
 ];
 
 
-
+ 
   
 //profile variables
 const profileTitle = document.querySelector(".profile__title");
@@ -65,35 +65,6 @@ const modalImage = document.querySelector(".modal__image");
 const modalImageCaption = document.querySelector(".modal__image-caption");
 const modalImageClose = imageModal.querySelector(".modal__close");
 
-//close function
-function closePopup(popup) {
-  popup.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalWithEsc);
-}
-
-//open function
-function openPopup(popup) {
-  popup.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalWithEsc);
-}
-
-//esc function
-const closeModalWithEsc = (e) => {
-  if (e.key === "Escape") {
-    const openModal = document.querySelector(".modal_opened");
-    closePopup(openModal);
-  }
-};
-
-//close by clicking overlay function
-function clickOutPopup(modal) {
-  modal.addEventListener("mousedown", function (e) {
-    if (e.target === e.currentTarget) {
-      closePopup(modal);
-    }
-  });
-}
-
 clickOutPopup(profileEditModal);
 
 clickOutPopup(profileAddModal);
@@ -108,35 +79,6 @@ function renderCard(cardData, listEl) {
   listEl.prepend(card.getView());
 }
 
-//card rendering
-// function getCardElement(cardData) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageEl = cardElement.querySelector(".card__image");
-//   const cardTitleEl = cardElement.querySelector(".card__title");
-//    const likeButton = cardElement.querySelector(".card__button-like");
-//    const deleteButton = cardElement.querySelector(".card__button-delete");
-
-//     likeButton.addEventListener("click", () => {
-//       likeButton.classList.toggle("card__button-like_active");
-//     });
-
-//     deleteButton.addEventListener("click", () => {
-//       cardElement.remove();
-//     });
-
-//   cardImageEl.addEventListener("click", () => {
-//     openPopup(imageModal);
-//     modalImage.src = cardImageEl.src;
-//     modalImage.alt = cardImageEl.alt;
-//     modalImageCaption.textContent = cardTitleEl.textContent;
-//   });
-
-//   cardTitleEl.textContent = cardData.name;
-//   cardImageEl.src = cardData.link;
-//   cardImageEl.alt = cardData.name;
-
-//   return cardElement;
-// }
 
 // Event handlers
 function handleProfileEditSubmit(e) {

@@ -1,3 +1,5 @@
+import { openPopup, closePopup } from "../utils/Utils.js";
+
 export default class Card {
     constructor({ name, link }, cardSelector) {
         this._name = name;
@@ -16,7 +18,10 @@ export default class Card {
             this._handleDelete();
         })
 
-        //Image preview Modal Event Listener
+        this._cardElement.querySelector(".card__image")
+        .addEventListener("click", () => {
+            this._handleImageModal();
+        })
     }
 
     _handleLikeIcon() {
@@ -29,9 +34,17 @@ export default class Card {
         this._cardElement = null;
     }
     
-    
+    _handleImageModal() {
+        const imageModal = document.querySelector("#image-modal");
+        this._cardImage = imageModal.querySelector(".modal__image");
+        this._cardTitle = imageModal.querySelector(".modal__image-caption");
+        
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
+        this._cardImage.textContent = this._name;
 
-    //_handleImageModal
+        openPopup(imageModal);
+    }
 
     _getTemplate() {
       this._cardElement = document
