@@ -79,18 +79,22 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-const formValidators = {};
+const addFormValidator = new FormValidator(config, cardAddForm);
+const editFormValidator = new FormValidator(config, profileEditForm);
 
-const enableValidation = (config) => {
-  const formList = [...document.querySelectorAll(config.formSelector)];
-  formList.forEach((formEl) => {
-    const validator = new FormValidator(config, formEl);
-    const formName = formEl.getAttribute("name");
-    formValidators[formName] = validator;
-    validator.enableValidation();
-  })
-};
-enableValidation(config);
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
+// const enableValidation = (options) => {
+//   const formList = [...document.querySelectorAll(options.formSelector)];
+//   formList.forEach((formEl) => {
+//     const validator = new FormValidator(options, formEl);
+//     const formName = formEl.getAttribute("name");
+//     formValidators[formName] = validator;
+//     validator.enableValidation();
+//   })
+// };
+// enableValidation(config);
 
 
 //card rendering
