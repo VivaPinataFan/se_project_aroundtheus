@@ -85,18 +85,6 @@ const editFormValidator = new FormValidator(config, profileEditForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-// const enableValidation = (options) => {
-//   const formList = [...document.querySelectorAll(options.formSelector)];
-//   formList.forEach((formEl) => {
-//     const validator = new FormValidator(options, formEl);
-//     const formName = formEl.getAttribute("name");
-//     formValidators[formName] = validator;
-//     validator.enableValidation();
-//   })
-// };
-// enableValidation(config);
-
-
 //card rendering
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
@@ -125,7 +113,7 @@ function handleAddCardFormSubmit(e) {
 
   renderCard({ name, link }, cardListEl);
   cardAddForm.reset();
-  this._toggleButtonState(cardInputList, cardSubmitButton, config);
+   addFormValidator.toggleButtonState(cardInputList, cardSubmitButton, config);
   closePopup(profileAddModal);
 }
 
