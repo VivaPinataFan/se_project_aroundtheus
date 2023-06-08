@@ -18,8 +18,7 @@ export default class Card {
             this._handleDelete();
         })
 
-        this._cardElement.querySelector(".card__image")
-        .addEventListener("click", () => {
+        this._cardImage.addEventListener("click", () => {
             this._handleImageModal();
         })
     }
@@ -36,12 +35,12 @@ export default class Card {
     
     _handleImageModal() {
         const imageModal = document.querySelector("#image-modal");
-        this._cardImage = imageModal.querySelector(".modal__image");
-        this._cardTitle = imageModal.querySelector(".modal__image-caption");
+        this._modalImage = imageModal.querySelector(".modal__image");
+        this._imageCaption = imageModal.querySelector(".modal__image-caption");
         
-        this._cardImage.src = this._link;
-        this._cardImage.alt = this._name;
-        this._cardTitle.textContent = this._name;
+        this._modalImage.src = this._link;
+        this._modalImage.alt = this._name;
+        this._imageCaption.textContent = this._name;
 
         openPopup(imageModal);
     }

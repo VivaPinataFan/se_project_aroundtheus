@@ -113,7 +113,7 @@ function handleAddCardFormSubmit(e) {
 
   renderCard({ name, link }, cardListEl);
   cardAddForm.reset();
-   addFormValidator.toggleButtonState(cardInputList, cardSubmitButton, config);
+   addFormValidator.toggleButtonState();
   closePopup(profileAddModal);
 }
 
