@@ -1,10 +1,9 @@
-import { openPopup, closePopup } from "../utils/Utils.js";
-
 export default class Card {
-    constructor({ name, link }, cardSelector) {
+    constructor({ name, link }, cardSelector, handleCardClick) {
         this._name = name;
         this._link = link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _setEventListeners() {
@@ -18,9 +17,10 @@ export default class Card {
             this._handleDelete();
         })
 
-        this._cardImage.addEventListener("click", () => {
-            this._handleImageModal();
+        this._cardImageEl.addEventListener("click", () => {
+            this._handleCardClick({ name: this._name, link: this._link });
         })
+
     }
 
     _handleLikeIcon() {
@@ -33,17 +33,17 @@ export default class Card {
         this._cardElement = null;
     }
     
-    _handleImageModal() {
-        const imageModal = document.querySelector("#image-modal");
-        this._modalImage = imageModal.querySelector(".modal__image");
-        this._imageCaption = imageModal.querySelector(".modal__image-caption");
+    // _handleImageModal() {
+    //     const imageModal = document.querySelector("#image-modal");
+    //     this._modalImage = imageModal.querySelector(".modal__image");
+    //     this._imageCaption = imageModal.querySelector(".modal__image-caption");
         
-        this._modalImage.src = this._link;
-        this._modalImage.alt = this._name;
-        this._imageCaption.textContent = this._name;
+    //     this._modalImage.src = this._link;
+    //     this._modalImage.alt = this._name;
+    //     this._imageCaption.textContent = this._name;
 
-        openPopup(imageModal);
-    }
+    //     openPopup(imageModal);
+    // }
 
     _getTemplate() {
       this._cardElement = document
