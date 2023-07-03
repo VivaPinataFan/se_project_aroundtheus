@@ -17,7 +17,7 @@ export default class Card {
             this._handleDelete();
         })
 
-        this._cardImageEl.addEventListener("click", () => {
+        this._cardImage.addEventListener("click", () => {
             this._handleCardClick({ name: this._name, link: this._link });
         })
 
@@ -32,18 +32,6 @@ export default class Card {
         this._cardElement.remove();
         this._cardElement = null;
     }
-    
-    // _handleImageModal() {
-    //     const imageModal = document.querySelector("#image-modal");
-    //     this._modalImage = imageModal.querySelector(".modal__image");
-    //     this._imageCaption = imageModal.querySelector(".modal__image-caption");
-        
-    //     this._modalImage.src = this._link;
-    //     this._modalImage.alt = this._name;
-    //     this._imageCaption.textContent = this._name;
-
-    //     openPopup(imageModal);
-    // }
 
     _getTemplate() {
       this._cardElement = document
