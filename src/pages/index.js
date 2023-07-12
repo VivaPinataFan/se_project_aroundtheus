@@ -10,13 +10,11 @@ import {
   profileTitle,
   profileSubtitle,
   profileEditButton,
-  profileEditModal,
   profileTitleInput, 
   profileSubtitleInput,
   profileEditForm,
   cardListEl,
   profileAddButton,
-  profileAddModal,
   cardAddForm,
   config,
 } from "../utils/constants.js";
@@ -93,8 +91,8 @@ popupImage.setEventListeners();
 
 //user info
 const userInfo = new UserInfo({
-  userNameSelector: profileTitle,
-  userJobSelector: profileSubtitle,
+  userNameElement: profileTitle,
+  userJobElement: profileSubtitle,
 });
 
 
