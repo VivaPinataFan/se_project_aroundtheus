@@ -18,11 +18,14 @@
       <!-- profile -->
       <main class="content">
         <section class="profile">
+        <section class="profile__image-container">
+          <button class="profile__image-edit" type="button"></button>
           <img
-            src="<%= require('./images/jacques-cousteau.jpg')%>"
+            src=""
             alt="Jacques Cousteau"
             class="profile__image"
           />
+        </section>
           <div class="profile__content">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -88,9 +91,40 @@
       </div>
     </div>
 
+    <!-- Avatar edit modal -->
+    <div class="modal" id="avatar-edit-modal">
+      <section class="modal__container">
+        <button class="modal__close" type="button"></button>
+        <form class="modal__form" id="modal-form-avatar" name="avatar-form">
+          <h2 class="modal__heading">Change profile picture</h2>
+          <input
+          type="url"
+          placeholder="Image URL"
+          class="modal__form-input"
+          name="url"
+          id="profile-avatar-input"
+          required
+          />
+          <span class='modal__error' id="profile-avatar-input-error"></span>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </section>>
+    </div>
+
+    <!-- delete modal -->
+    <div class="modal" id="modal-delete">
+      <section class="modal__container">
+        <button class="modal__close" type="button"></button>
+        <form class="modal__form" id="modal-form-delete" name="delete-form">
+          <h2 class="modal__heading">Are you sure?</h2>
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
+      </section>
+    </div>
+
     <!-- card modal -->
     <div class="modal" id="profile-add-modal">
-      <div class="modal__container">
+      <section class="modal__container">
         <button class="modal__close" type="button"></button>
         <h2 class="modal__heading">New place</h2>
         <form class="modal__form" name="modal-form" id="modal-form-add">
@@ -120,16 +154,16 @@
           </label>
           <button class="modal__button" id="card-submit" type="submit">Create</button>
         </form>
-      </div>
+      </section>
     </div>
 
     <!-- image modal -->
     <div class="modal" id="image-modal">
-      <div class="modal__container-image">
+      <section class="modal__container-image">
         <button class="modal__close" type="button"></button>
         <img class="modal__image" src="#" alt="#" />
         <p class="modal__image-caption"></p>
-      </div>
+      </section>
     </div>
 
     <!-- card template -->
