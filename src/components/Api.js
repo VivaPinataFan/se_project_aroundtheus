@@ -5,18 +5,19 @@ export default class Api {
     }
 
     _handleServerResponse(res) {
-      if (res.ok) {
-        return res.json();
+              if (res.ok) {
+          return res.json();
       }
       return Promise.reject(`Error: ${res.status}`);
-    }
+            }
 
     _request(url, options) {
-      return fetch(url, options).then(this._handleServerResponse);
+            return fetch(url, options).then(this._handleServerResponse);
     }
 
     getInitialCards() {
       return this._request(`${this._baseUrl}/cards`, { headers: this._headers });
+
     }
 
     getUserInfo() {
@@ -25,7 +26,7 @@ export default class Api {
       });
     }
     addCard({ name, link }) {
-      return fetch(`${this._baseUrl}/cards`, {
+      return this._request(`${this._baseUrl}/cards`, {
         method: "POST",
         headers: this._headers,
         body: JSON.stringify({ name, link}),
@@ -48,12 +49,13 @@ export default class Api {
     }
 
   updateUserInfo(name, description) {
+    console.log(name, description);
     return this._request(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        userName: name,
-        userJob: description,
+        name: name,
+        about: description,
       }),
     });
     }
@@ -63,7 +65,7 @@ export default class Api {
         method: "PATCH",
         headers: this._headers,
         body: JSON.stringify({
-          avatar: url,
+        avatar: url,
         }),
       });
     }

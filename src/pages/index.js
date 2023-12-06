@@ -30,8 +30,6 @@ const api = new Api({
   },
 });
 
-
-
 const addFormValidator = new FormValidator(config, cardAddForm);
 const editFormValidator = new FormValidator(config, profileEditForm);
 
@@ -79,8 +77,10 @@ function renderCard(cardData) {
       })
       .catch(console.error);
     },
-    function handleDelete() {
+
+    function handleDelete(cardData, cardElement) {
       deletePopup.setSubmitAction(() => {
+        
         deletePopup.setLoading(true);
         api
         .removeCard(cardData._id)
@@ -104,7 +104,7 @@ let userId;
 
 Promise.all([api.getInitialCards(), api.getUserInfo()])
   .then(([initialCards, userData]) => {
-    userInfo.setUserInfo(userData.name, userData.about);
+        userInfo.setUserInfo(userData.name, userData.about);
     userInfo.setUserAvatar(userData.avatar);
     userId = userData._id;
     cardSection = new Section(
@@ -139,12 +139,20 @@ function handleEditProfileSubmit({ name, description }) {
     .then(() => {
       userInfo.setUserInfo(name, description);
       editPopup.close();
-    })
+    }) 
     .catch(console.error)
     .finally(() => {
       editPopup.setLoading(false);
     });
 }
+
+//new Card Popup
+const newCardPopup = new PopupWithForm(
+  "#profile-add-modal",
+  handleAddCardFormSubmit
+);
+
+newCardPopup.setEventListeners();
 
 function handleAddCardFormSubmit({ name, link }) {
   newCardPopup.setLoading(true);
@@ -152,17 +160,19 @@ function handleAddCardFormSubmit({ name, link }) {
     .addCard({ name, link })
     .then((cardData) => {
       const cardElement = renderCard(cardData);
-      cardSection.prependItem(cardElement);
-      newCardPopup.close();
+      cardSection.addItem(cardElement);
     })
     .catch(console.error)
     .finally(() => {
       newCardPopup.setLoading(false);
+      newCardPopup.close();
+      location.reload();
     });
 }
 
 function handleAvatarFormSubmit({ url }) {
   avatarEditPopup.setLoading(true);
+  console.log(url);
   api
   .setUserAvatar(url)
   .then((userData) => {
@@ -177,10 +187,10 @@ function handleAvatarFormSubmit({ url }) {
 
 //Event handlers
 profileEditButton.addEventListener("click", () => {
-  const { userName, userJob } = userInfo.getUserInfo();
+  const { name, description } = userInfo.getUserInfo();
   
-  profileTitleInput.value = userName;
-  profileSubtitleInput.value = userJob;
+  profileTitleInput.value = name;
+  profileSubtitleInput.value = description;
 
   editPopup.open();
   editFormValidator.toggleButtonState();
@@ -193,15 +203,10 @@ profileAddButton.addEventListener("click", () => {
 
 avatarEditButton.addEventListener("click", () => {
   avatarEditPopup.open();
+
 });
 
-//new Card Popup
-const newCardPopup = new PopupWithForm(
-  "#profile-add-modal",
-  handleAddCardFormSubmit
-);
 
-newCardPopup.setEventListeners();
 
 //card section
 
