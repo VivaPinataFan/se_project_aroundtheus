@@ -24,7 +24,7 @@ export default class Card {
 
         this._cardElement.querySelector(".card__button-delete")
         .addEventListener("click", () => {
-            this._handleDelete();
+            this._handleDeleteClick(this._cardId);
         })
 
         this._cardImage.addEventListener("click", () => {
@@ -57,7 +57,10 @@ export default class Card {
      .cloneNode(true);
       return this._cardElement;
     }
-
+    removeCardElement() {
+        // Assuming this._cardElement is the card DOM element
+        this._cardElement.remove();
+      }
     getView() {
      this._cardElement = this._getTemplate();
      this._cardImage = this._cardElement.querySelector(".card__image");

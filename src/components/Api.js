@@ -5,11 +5,18 @@ export default class Api {
     }
 
     _handleServerResponse(res) {
-              if (res.ok) {
-          return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-            }
+      return res.json().then(data => {
+        if (res.ok) {
+          console.log('Server response data:', data);
+          return data;
+        } else {
+          // Log the error response from the server
+          console.error('Error data:', data);
+          // Throw an error with both the status and the error message
+          throw new Error(`Error: ${res.status}: ${data.message}`);
+        }
+      });
+    }
 
     _request(url, options) {
             return fetch(url, options).then(this._handleServerResponse);

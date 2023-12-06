@@ -78,12 +78,12 @@ function renderCard(cardData) {
       .catch(console.error);
     },
 
-    function handleDelete(cardData, cardElement) {
+    function handleDelete(cardId) {
+      console.log(cardId)
       deletePopup.setSubmitAction(() => {
-        
         deletePopup.setLoading(true);
         api
-        .removeCard(cardData._id)
+        .removeCard(cardId)
         .then((res) => {
           cardElement.removeCardElement(res._id);
           deletePopup.close();
