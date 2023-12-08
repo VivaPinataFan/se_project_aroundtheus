@@ -36,9 +36,8 @@ export default class Api {
       return this._request(`${this._baseUrl}/cards`, {
         method: "POST",
         headers: this._headers,
-        body: JSON.stringify({ name, link}),
-    })
-    .then(this._handleServerResponse);
+        body: JSON.stringify({ name, link }),
+      });
     }
 
     removeCard(cardId) {

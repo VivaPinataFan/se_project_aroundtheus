@@ -20,6 +20,7 @@ import {
   config,
   avatarEditButton,
   profileAvatar,
+  avatarEditForm,
 } from "../utils/constants.js";
 
 const api = new Api({
@@ -32,9 +33,11 @@ const api = new Api({
 
 const addFormValidator = new FormValidator(config, cardAddForm);
 const editFormValidator = new FormValidator(config, profileEditForm);
+const editAvatarValidator = new FormValidator(config, avatarEditForm);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+editAvatarValidator.enableValidation();
 
 //edit popup
 const editPopup = new PopupWithForm(
@@ -101,6 +104,7 @@ function renderCard(cardData) {
 
 let cardSection;
 let userId;
+userId;
 
 Promise.all([api.getInitialCards(), api.getUserInfo()])
   .then(([initialCards, userData]) => {
@@ -166,7 +170,6 @@ function handleAddCardFormSubmit({ name, link }) {
     .finally(() => {
       newCardPopup.setLoading(false);
       newCardPopup.close();
-      location.reload();
     });
 }
 
