@@ -202,4 +202,5 @@ profileAddButton.addEventListener("click", () => {
 
 avatarEditButton.addEventListener("click", () => {
   avatarEditPopup.open();
+  editAvatarValidator.toggleButtonState();
 });
