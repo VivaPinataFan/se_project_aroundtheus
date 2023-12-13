@@ -31,9 +31,8 @@ export class FormValidator {
     if (!inputEl.validity.valid) {
       this._showInputError(inputEl);
     } else {
-      this._hideInputError(inputEl)
+      this._hideInputError(inputEl);
     }
-    
   }
 
   toggleButtonState() {
@@ -52,12 +51,11 @@ export class FormValidator {
     });
   }
 
-
   _setEventListeners() {
     this._inputEls = [
       ...this._formElement.querySelectorAll(this._inputSelector),
     ];
-  
+
     this._submitButton = this._formElement.querySelector(
       this._submitButtonSelector
     );
@@ -70,7 +68,6 @@ export class FormValidator {
     });
 
     this.toggleButtonState();
-    
   }
 
   enableValidation() {
